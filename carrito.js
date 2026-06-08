@@ -144,7 +144,7 @@ allProducts.forEach(product =>{
 };
 
 botonpagar.addEventListener("click", async ()=>{
-  const response = await fetch("/create-order",{
+  const response = await fetch("https://ecomerce-back-sks5.onrender.com/create-order",{
     method: "POST",
     headers:{
       "Content-Type":"application/json",
