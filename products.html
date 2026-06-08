@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos Casio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="products.css"> -->
+    <link rel="icon" href="fots/black-hole-6274731.jpg" type="image/jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container container--flex">
+            <div class="main-header__container calle">
+                <div class="contenedor-tiltle">
+                    <div class="bootton-carro"onclick="add()"><span class="card"><i class="fas fa-shopping-cart"></i></span></div>
+                    <h1 class="main-header__title">E-COMERCE</h1>     
+                    <span class="icon-menu" id="btn"><i class=" fas fa-bars"></i></span>
+                </div>
+                <nav class="main-nav"id="main-nav"> 
+                    <ul class="menu">
+                        <li class="menu-item"><a class="menu__link"href="./index.html">HOME</a></li>
+                        <li class="menu-item"><a class="menu__link"href="">G-SHOCK</a></li>
+                        <li class="menu-item"><a class="menu__link">MISTRAL</a></li>
+                        <li class="menu-item"><a class="menu__link"href="./products.html">CASIO</a></li>
+                        <li class="menu-item"><a class="menu__link">VER TODO</a></li>
+                    </ul>
+                </nav>
+                <!-- <div class=""id="cds"></div> -->
+                <div class="mm" id="holdd">
+                    <div class="conteiner-cabexera-card">
+                        <h2>Carrito de Compras</h2>
+                        <div><i class="fas fa-times-circle cia"id="delate"onclick="quitt()"></i></div>     
+                    </div>
+                    <div class="conteiner-dvalert-card"><p class="carrito-alert" id="tull">Carrito Vacio</p></div>       
+                    <div class="mm" id="toll">
+                        <div class="total--price"><p>Total:</p><p id="total"></p></div>
+                        <div class="initial--compra"><button href="">Iniciar Compra</button></div>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="img--porduct-casio">
+        <img class=""src="./fots/relojcasio1.jpg"alt="">
+    </div>
+    <main>
+        <h2 class="main-title">Recomendados</h2>
+            <div class="containerpadre--tips">
+                <section class="container-tips">
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                </section>
+            </div>
+        </section>
+        <section>
+            <div class="containerpadre--tips">
+                <section class="container-tips">
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.html"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <a href="https://github.com/emanuelcasella70/Codigo./blob/main/codigo.css"class="slider__link">Comprar</a>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <a href="https://github.com/emanuelcasella70"class="slider__link">Comprar</a>
+                        </div>
+                </section>
+            </div>
+    </main>
+<script src="btnAlert.js"></script>
+</body>
+</html>

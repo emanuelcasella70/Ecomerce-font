@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-comerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="fots/black-hole-6274731.jpg" type="image/jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@900&display=swap" rel="stylesheet">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container container--flex">
+            <div class="main-header__container calle">
+                <div class="contenedor-tiltle">
+                    <div class="bootton-carro"onclick="add()"><div class="contadorproducts mm">0</div><span class="card"><i class="fas fa-shopping-cart"></i></span></div>
+                    <h1 class="main-header__title">E-comerce</h1>     
+                    <span class="icon-menu" id="btn"><i class=" fas fa-bars"></i></span>
+                </div>
+                <nav class="main-nav"id="main-nav"> 
+                    <ul class="menu">
+                        <li class="menu-item"><a class="menu__link"href="">G-SHOCK</a></li>
+                        <li class="menu-item"><a class="menu__link">MISTRAL</a></li>
+                        <li class="menu-item"><a class="menu__link"href="./products.html">CASIO</a></li>
+                        <li class="menu-item"><a class="menu__link">VER TODO</a></li>
+                    </ul>
+                </nav>
+                <!-- <div class=""id="cdss"></div> -->
+                <div class="mm" id="holdd">
+                    <div class="conteiner-cabexera-card">
+                        <h2>Carrito de Compras</h2>
+                        <div><i class="fas fa-times-circle cia"id="delate"onclick="quitt()"></i></div>     
+                    </div>
+                    <div class="conteiner-dvalert-card"><p class="carrito-alert" id="tull">Carrito Vacio</p> </div>       
+                    <div class="mm" id="toll">
+                        <div class="total--price"><p>Total:</p><p id="total"></p></div>
+                        <div class="initial--compra" style="display: none;"><button id="pay">Iniciar Compra</button></div>      
+                        <div class="initial--compra"><button type="button" id="btn-iniciar-pago">Iniciar Compra</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+<!--  SLIDER  -->
+<div class="container-slider">
+    <div class="slider"id="slider">
+        <div class="slider__section">
+            <img src="./fots/reloj1.jpg"alt=""class="slider__img">
+            <div class="slider__content">
+                <!-- <h2 class="slider__title">xxxxxxxxxxxxxxx</h2>
+                <p class="slider__txt">{ - }</p>
+                <div class="delate">
+                        <div class="main-header__container">
+                        <a href=""class="main-header__btn"target="_blank">CARRITO</a>
+                    </div>     
+                </div> -->
+            </div> 
+        </div>
+        <div class="slider__section">
+            <img src="./fots/reloj2.jpg"alt=""class="slider__img">
+            <div class="slider__content">
+                <!-- <h2 class="slider__title">xxxxxxxxxx</h2>
+                <p class="slider__txt">{ - }</p> -->
+                <div class="delate">
+                    <!-- <div class="main-header__container">
+                        <a href=""class="main-header__btn"target="_blank">CARRITO</a>
+                    </div>      -->
+                </div>
+            </div>
+        </div>
+        <div class="slider__section">
+            <img src="./fots/time-3091031_1280.jpg"alt=""class="slider__img">
+            <div class="slider__content">
+                <!-- <h2 class="slider__title">xxxxxxxxxxxx</h2>
+                <p class="slider__txt">{ - }</p> -->
+                <div class="delate">
+                    <!-- <div class="main-header__container">
+                        <a href=""class="main-header__btn"target="_blank">CARRITO</a>
+                    </div>      -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider__btn slider__btn--right"id="btn-right">></div>
+    <div class="slider__btn slider__btn--left"id="btn-left">&#60;</div>
+</div>
+<!--  MAIN  -->
+<main>
+<div class="div-contenedor-main1">
+    <div class="contenedor-hijo1">
+        <div class="childrent"><div><i class="fas fa-credit-card"></i></div><div><h3>Paga en Cuotas</h3><p>12 cuotas sin interes Visa y Master</p></div></div>
+        <div class="childrent"><div><i class="fas fa-check-circle"></i></div><div><h3>Garantia Oficial</h3><p>Productos originales</p></div></div>
+        <div class="childrent"><div><i class="fas fa-truck-moving"></i></div><div><h3>Envios</h3><p>Gratis desde $50.000 a todo el pais o rapido en AMBA</p></div></div>
+        <div class="childrent"><div><i class="fas fa-store-alt"></i></div><div><h3>Retiro en Tienda</h3><p>Podes retirar gratis en nuestrso puntos de entrega</p></div></div>
+    </div>
+</div>
+    <div class="container">
+        <h2 class="main-title">Mira Nuestras Categorias</h2>
+        <section class="container-products"> 
+            <div class="conteiner-editor">
+                <a class="editor__item"target="_blank"href="https://tangerine-cannoli-49979b.netlify.app"><img src="./fots/reloj3.webp"alt="Bosque"class="editor__img"><p class="editor__crcle">Ver ahora</p></a>
+                <a class="editor__item"target="_blank"href="https://fancy-lily-0106be.netlify.app"><img src="./fots/reloj4.webp"alt=""class="editor__img"><p class="editor__crcle">Ver Ahora</p></a>
+            </div>          
+            <h2 class="main-title">Recomendados</h2>
+            <div class="containerpadre--tips">
+                <section class="container-tips">
+                        <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$1401.670</p>
+                            <button class="slider__link">Comprar</button>
+                            <button class="slider__linkk"><i class="cut fas fa-shopping-cart"></i></button>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <button class="slider__link">Comprar</button>
+                            <button class="slider__linkk"><i class="fas fa-shopping-cart cut"></i></button>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <button class="slider__link">Comprar</button>
+                            <button class="slider__linkk"><i class="fas fa-shopping-cart cut"></i></button>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <button class="slider__link">Comprar</button>
+                            <button class="slider__linkk"><i class="fas fa-shopping-cart cut"></i></button>
+                        </div>
+                </section>
+            </div>
+        </section>
+        <section class="container-products">
+            <div class="img-mostlook">
+                <img src="./fots/reloj6.webp" alt="">
+            </div>
+            <h2 class="main-title">Destacados</h2>
+            <div class="containerpadre--tips">
+                <section class="container-tips">
+                    <div class="tip">
+                            <img src="./fots/reloj-venta.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
+                            <p class="tip__txt">$140.670</p>
+                            <button class="slider__link">Comprar</button>
+                            <button class="slider__linkk"><i class="fas fa-shopping-cart cut"></i></button>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
+                            <p class="tip__txt">$166.000</p>
+                            <button class="slider__link">Comprar</button>
+                            <button class="slider__linkk"><i class="fas fa-shopping-cart cut"></i></button>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta3.jpg" alt="">
+                            <h2 class="tip__title">RELOJ CASIO MTP-B155C-3E</h2>
+                            <p class="tip__txt">$95.000</p>
+                            <button class="slider__link">Comprar</button>
+                            <button class="slider__linkk"><i class="fas fa-shopping-cart cut"></i></button>
+                        </div>
+                        <div class="tip">
+                            <img src="./fots/reloj-venta4.jpg" alt="">
+                            <h2 class="tip__title">RELOJ MISTRAL GDX-DAU-01</h2>
+                            <p class="tip__txt">$100.000</p>
+                            <button class="slider__link">Comprar</button>
+                            <button class="slider__linkk"><i class="fas fa-shopping-cart cut"></i></button>
+                        </div>
+                </section>
+            </div>
+
+        </section>
+    </div>
+    <div class="div-contenedor-main1">
+        <div class="contenedor-hijo1">
+            <div class="childrent"><div><i class="fas fa-credit-card"></i></div><div><h3>Paga en Cuotas</h3><p>12 cuotas sin interes Visa y Master</p></div></div>
+            <div class="childrent"><div><i class="fas fa-check-circle"></i></div><div><h3>Garantia Oficial</h3><p>Productos originales</p></div></div>
+            <div class="childrent"><div><i class="fas fa-truck-moving"></i></div><div><h3>Envios</h3><p>Gratis desde $50.000 a todo el pais o rapido en AMBA</p></div></div>
+            <div class="childrent"><div><i class="fas fa-store-alt"></i></div><div><h3>Retiro en Tienda</h3><p>Podes retirar gratis en nuestrso puntos de entrega</p></div></div>
+        </div>
+    </div>
+</main>
+<!-- FOOTER  -->
+<footer class="main-footer">        
+    <div class="footer__section">
+        <h2 class="footer__title">Location.</h2>
+        <p class=""><a href="https://www.google.com/maps/place/La+Boca,+CABA/@-34.6375881,-58.3704716,15z/data=!3m1!4b1!4m5!3m4!1s0x95a334b0bf5ff0a5:0x3858a68c0d7599a0!8m2!3d-34.6344961!4d-58.3631337" target="_blank" class="icon-">La Boca Argentina Buenos Aires</a></p>
+    </div>        
+    <div class="footer__section">
+        <h2 class="footer__title">Contact.</h2>
+        <p>Phone: 1127970670 </p>
+        <p>Email: emanuel.casellero@gmail.com</p>
+    </div>
+    <div class="footer__section">
+        <h2 class="footer__title">Social Network</h2>
+        <p><i class="fab fa-instagram"></i> <a class="icon-"href="https://www.instagram.com/emanuel_casella7/">Instagram</a></p>
+        <p><i class="fab fa-facebook-f"></i><a class="icon-"href="https://www.facebook.com/profile.php?id=100008522079749">Facebook</a></p>
+    </div>
+    <div class="footer__section">
+        <h2 class="footer__title">Vital Portfolio</h2>
+    </div>
+</footer>   
+<script src="btnAlert.js"></script>
+<script src="./carrito.js"></script>
+<script src="font.js"></script>
+</body>
+</html>
