@@ -61,7 +61,7 @@ productsBody.addEventListener("click", e =>{
         if(allProducts.length === 0) return alert("Carrito vacío");
         
         localStorage.setItem("carrito", JSON.stringify(allProducts));
-        window.location.href = "/buy";
+        window.location.href = "./vta.html";
     });
 }
 
@@ -171,7 +171,7 @@ confCompra.forEach(boton => {
      }
       localStorage.setItem("carrito", JSON.stringify([Products]));  
 
-        window.location.href = "/buy";
+        window.location.href = "./vta.html";
     });
 }); 
 
