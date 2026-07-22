@@ -13,6 +13,23 @@ console.log(confCompra)
 //    contadorPoducts.classList.add("mm")  
 // }
 
+document.addEventListener('DOMContentLoaded', () => {
+  despertarBackend();
+});
+
+function despertarBackend() {
+  fetch('https://ecomerce-back-sks5.onrender.com/ping')
+    .then((res) => {
+      if (res.ok) {
+        console.log('⚡ Backend despierto y listo');
+      }
+    })
+    .catch((error) => {
+      console.warn('Backend aún iniciando o inaccesible:', error);
+    });
+}
+
+
 
 // let allProducts = []
 let allProducts = JSON.parse(localStorage.getItem("carrito")) || [];
