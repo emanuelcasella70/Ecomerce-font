@@ -192,7 +192,69 @@ confCompra.forEach(boton => {
     });
 }); 
 
+// Variable para almacenar el producto seleccionado en el modal
+let activeProduct = null;
 
+// Modifica tu función openQuickView para guardar el producto activo
+function openQuickView(productData) {
+  activeProduct = productData; // <--- Guardamos los datos aquí
+  
+  document.getElementById('modalTitle').innerText = productData.title;
+  document.getElementById('modalPrice').innerText = productData.price;
+  document.getElementById('modalDescription').innerText = productData.description;
+  document.getElementById('modalMainImg').src = productData.mainImage;
+
+  const thumbnailsContainer = document.querySelector('.modal-thumbnails');
+  if (thumbnailsContainer) {
+    thumbnailsContainer.innerHTML = '';
+    
+    let allImages = [productData.mainImage];
+    if (productData.images && productData.images.length > 0) {
+      const extraImages = productData.images.filter(img => img !== productData.mainImage);
+      allImages = allImages.concat(extraImages);
+    }
+
+    allImages.forEach((imgSrc, index) => {
+      const img = document.createElement('img');
+      img.src = imgSrc.trim();
+      img.alt = `Vista ${index + 1}`;
+      
+      if (index === 0) {
+        img.classList.add('thumb-active');
+      }
+      
+      img.onclick = function() {
+        changeMainImage(imgSrc.trim());
+        document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('thumb-active'));
+        img.classList.add('thumb-active');
+      };
+      
+      thumbnailsContainer.appendChild(img);
+    });
+  }
+
+  document.getElementById('quickViewModal').classList.add('active');
+}
+
+// Escuchar el clic en el botón "Comprar" dentro del modal
+const modalBuyBtn = document.querySelector(".btn-buy-modal");
+if (modalBuyBtn) {
+  modalBuyBtn.addEventListener("click", () => {
+    if (!activeProduct) return;
+
+    const Product = {
+      cantidad: 1,
+      titulo: activeProduct.title,
+      precio: activeProduct.price
+    };
+
+    // Guardamos exactamente igual que el botón de la tarjeta
+    localStorage.setItem("carrito", JSON.stringify([Product]));
+    
+    // Redirigimos a la pasarela/formulario de ventas
+    window.location.href = "./vta.html";
+  });
+}
 
 
 

@@ -41,7 +41,9 @@ img {
 
 .div-contenedor-main1{
     margin-bottom: 50px;
-    background-color: rgb(233, 230, 230);
+    background-color: rgb(165, 161, 161);
+    width: 75%;
+    margin: auto;
 
 }
 
@@ -317,7 +319,7 @@ main{
   margin-bottom: 50px ;
   position: relative;
   overflow: hidden;
-  margin-top: 152px;
+  margin-top: 154px;
 }
 
 .slider{
@@ -452,10 +454,142 @@ border: 1px solid #183153;
 
 
 
+/* Overlay oscuro de fondo */
+.modal-overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+.product-description-seo {
+  display: none;
+}
 
+/* Mostrar el modal */
+.modal-overlay.active {
+  display: flex;
+}
+
+/* Caja principal del modal */
+.modal-content {
+  background: #ffffff;
+  width: 90%;
+  max-width: 850px;
+  border-radius: 8px;
+  position: relative;
+  padding: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Botón cerrar X */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Disposición interna de las 3 secciones */
+.modal-body {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Miniaturas laterales (izquierda) */
+.modal-thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-thumbnails img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.modal-thumbnails img:hover,
+.modal-thumbnails img.thumb-active {
+  border-color: #000;
+}
+
+/* Imagen Principal (centro) */
+.modal-main-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-main-image img {
+  max-width: 100%;
+  max-height: 350px;
+  object-fit: contain;
+}
+
+/* Información de Título y Descripción (derecha) */
+.modal-info {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-info h2 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #111;
+}
+
+.modal-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d9534f;
+  margin: 10px 0;
+}
+
+.modal-description {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.btn-buy-modal {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.btn-buy-modal:hover {
+  background-color: #333;
+}
 
 /* EDITOR */
 
+.imagenr{
+    object-fit: cover;
+    height: 400px;
+}
 .conteiner-editor{
     margin-top: 55px;
     overflow: hidden;
@@ -556,6 +690,7 @@ border: 1px solid #183153;
 .tip{
     padding: 50px 5px;
     margin: 0 35px 0 25px;
+    cursor: pointer;
 }
 .tip__title{
     font-size: 15px;
@@ -608,6 +743,36 @@ text-align: center;
     display: block;
     text-align: center;
     margin-top: 44px;
+}
+
+.map-section {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin: 40px 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.map-container {
+  position: relative;
+  width: 80%;
+  max-width: 1200px; 
+  padding-bottom: 400px; 
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* RESPON */
@@ -775,6 +940,8 @@ text-align: center;
     opacity: 1;
     width: 100%;
     /* margin-top: 20px; */
+    background: #151515;
+    
 } 
 
 .menu{
@@ -785,9 +952,9 @@ text-align: center;
     
 }
 
-.menu__link{
+/* .menu__link{
     color: #333;
-}
+} */
 .menu__link:hover{
     color: white;
     background: #333;

@@ -20,7 +20,7 @@
             <div class="main-header__container calle">
                 <div class="contenedor-tiltle">
                     <div class="bootton-carro"onclick="add()"><div class="contadorproducts mm">0</div><span class="card"><i class="fas fa-shopping-cart"></i></span></div>
-                    <h1 class="main-header__title">E-comerce</h1>     
+                    <h1 class="main-header__title">Damianix 3D</h1>     
                     <span class="icon-menu" id="btn"><i class=" fas fa-bars"></i></span>
                 </div>
                 <nav class="main-nav"id="main-nav"> 
@@ -51,11 +51,11 @@
 <div class="container-slider">
     <div class="slider"id="slider">
         <div class="slider__section">
-            <img src="./fots/reloj1.jpg"alt=""class="slider__img"fetchpriority="high">
+            <img src="./fots/photo-1656066834927-5c1e3f5d6fe9.webp"alt=""class="slider__img"fetchpriority="high">
             <div class="slider__content">
-                <!-- <h2 class="slider__title">xxxxxxxxxxxxxxx</h2>
-                <p class="slider__txt">{ - }</p>
-                <div class="delate">
+                <h2 class="slider__title">IMPRESIONES 3D</h2>
+                <p class="slider__txt">DISEÑOS PERSONALIZADOS</p>
+                <!-- <div class="delate">
                         <div class="main-header__container">
                         <a href=""class="main-header__btn"target="_blank">CARRITO</a>
                     </div>     
@@ -63,10 +63,11 @@
             </div> 
         </div>
         <div class="slider__section">
-            <img src="./fots/reloj2.jpg"alt=""class="slider__img">
+            <img src="./fots/Gemini_Generated_Image_uqby9puqby9puqby.webp"alt=""class="slider__img">
             <div class="slider__content">
-                <!-- <h2 class="slider__title">xxxxxxxxxx</h2>
-                <p class="slider__txt">{ - }</p> -->
+                <h2 class="slider__title">Recicladoras de Residuos de impreion 3D</h2>
+                <p class="slider__txt"> RECICLA - REUSA - REIMPRIME </p>
+                <i class="fa-sharp fa-solid fa-recycle"></i>
                 <div class="delate">
                     <!-- <div class="main-header__container">
                         <a href=""class="main-header__btn"target="_blank">CARRITO</a>
@@ -75,10 +76,10 @@
             </div>
         </div>
         <div class="slider__section">
-            <img src="./fots/time-3091031_1280.jpg"alt=""class="slider__img">
+            <img src="./fots/tungart7-containers-8676518.webp"alt=""class="slider__img">
             <div class="slider__content">
-                <!-- <h2 class="slider__title">xxxxxxxxxxxx</h2>
-                <p class="slider__txt">{ - }</p> -->
+                <h2 class="slider__title">Importadores Directos <br>Buenos Aires</h2>
+                <p class="slider__txt">Envios a Todo el Pais</p>
                 <div class="delate">
                     <!-- <div class="main-header__container">
                         <a href=""class="main-header__btn"target="_blank">CARRITO</a>
@@ -102,23 +103,60 @@
 </div>
     <div class="container">
         <h2 class="main-title">Mira Nuestras Categorias</h2>
+        <div id="quickViewModal" class="modal-overlay">
+  <div class="modal-content">
+    <!-- Botón para cerrar -->
+    <button class="modal-close" onclick="closeQuickView()">&times;</button>
+    
+    <div class="modal-body">
+      <!-- Columna 1: Miniaturas a la izquierda -->
+      <div class="modal-thumbnails">
+        <img src="img/prod-1.jpg" alt="Vista 1" onclick="changeMainImage(this.src)" class="thumb-active">
+        <img src="img/prod-2.jpg" alt="Vista 2" onclick="changeMainImage(this.src)">
+        <img src="img/prod-3.jpg" alt="Vista 3" onclick="changeMainImage(this.src)">
+        <img src="img/prod-4.jpg" alt="Vista 4" onclick="changeMainImage(this.src)">
+      </div>
+
+      <!-- Columna 2: Imagen Principal -->
+      <div class="modal-main-image">
+        <img id="modalMainImg" src="img/prod-1.jpg" alt="Producto Principal">
+      </div>
+
+      <!-- Columna 3: Título y Descripción a la derecha -->
+      <div class="modal-info">
+        <h2 id="modalTitle">Extrusora de Filamento 3D</h2>
+        <p class="modal-price" id="modalPrice">$4.500.000 ARS</p>
+        <div class="modal-description">
+          <p id="modalDescription">
+            Máquina de extrusión industrial para reciclaje de plástico y fabricación de filamento de 1,75 mm. Incluye control de temperatura de precisión y sistema de bobinado automático.
+          </p>
+        </div>
+        <button class="btn-buy-modal">Comprar</button>
+      </div>
+    </div>
+  </div>
+</div>
         <section class="container-products"> 
-            <div class="conteiner-editor">
+            <!-- <div class="conteiner-editor">
                 <a class="editor__item"target="_blank"href="https://tangerine-cannoli-49979b.netlify.app"><img src="./fots/reloj3.webp"alt="Bosque"class="editor__img"><p class="editor__crcle">Ver ahora</p></a>
                 <a class="editor__item"target="_blank"href="https://fancy-lily-0106be.netlify.app"><img src="./fots/reloj4.webp"alt=""class="editor__img"><p class="editor__crcle">Ver Ahora</p></a>
-            </div>          
-            <h2 class="main-title">Recomendados</h2>
+            </div>           -->
+            <!-- <h2 class="main-title">Recomendados</h2> -->
             <div class="containerpadre--tips">
                 <section class="container-tips">
-                        <div class="tip">
-                            <img src="./fots/reloj-venta.jpg" alt="">
+                        <div class="tip" 
+                         data-title="RELOJ MISTRAL GMT-7171TT-09"
+                         data-price="$140.670"
+                         data-main-image="./fots/recicladora12.webp"
+                         data-images="./fots/recicladora12.webp,./fots/detalle-extrusora-1.webp,./fots/detalle-extrusora-2.webp,./fots/detalle-extrusora-3.webp">
+                            <img src="./fots/recicladora12.webp" alt="">
                             <h2 class="tip__title">RELOJ MISTRAL GMT-7171TT-09</h2>
                             <p class="tip__txt">$1401.670</p>
                             <button class="slider__link">Comprar</button>
                             <button class="slider__linkk"><i class="cut fas fa-shopping-cart"></i></button>
                         </div>
                         <div class="tip">
-                            <img src="./fots/reloj-venta2.jpg" alt="">
+                            <img src="./fots/recicladora2.webp" alt="">
                             <h2 class="tip__title">RELOJ MISTRAL GST-370-08</h2>
                             <p class="tip__txt">$166.000</p>
                             <button class="slider__link">Comprar</button>
@@ -143,7 +181,7 @@
         </section>
         <section class="container-products">
             <div class="img-mostlook">
-                <img src="./fots/reloj6.webp" alt="">
+                <img src="./fots/photo-1656066834927-5c1e3f5d6fe9.webp"alt=""class="imagenr">
             </div>
             <h2 class="main-title">Destacados</h2>
             <div class="containerpadre--tips">
@@ -181,6 +219,16 @@
 
         </section>
     </div>
+<section class="map-section">
+  <div class="map-container">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.3411671520053!2d-58.47225832350185!3d-34.64608595973817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcc91ce3e5af31%3A0x2f75475b123346e!2sDamianix!5e0!3m2!1ses!2sar!4v1793426034159!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación de nuestro local">
+    </iframe>
+  </div>
+</section>
     <div class="div-contenedor-main1">
         <div class="contenedor-hijo1">
             <div class="childrent"><div><i class="fas fa-credit-card"></i></div><div><h3>Paga en Cuotas</h3><p>12 cuotas sin interes Visa y Master</p></div></div>
