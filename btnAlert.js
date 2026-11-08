@@ -193,46 +193,92 @@ setInterval(function(){
 
 
 // Delegación de eventos: Escucha el clic en las tarjetas .tip sin contaminar el HTML
-document.addEventListener('click', function(event) {
-  // Verificar si el clic fue dentro de una tarjeta .tip
-  const card = event.target.closest('.tip');
+// document.addEventListener('click', function(event) {
+//   // Verificar si el clic fue dentro de una tarjeta .tip
+//   const card = event.target.closest('.tip');
   
-  // Si hizo clic en la tarjeta pero NO en los botones de comprar/carrito
-  if (card && !event.target.closest('button')) {
-    // Extraer la descripción visible (para SEO)
-    const descriptionText = card.querySelector('.product-description-seo') 
-      ? card.querySelector('.product-description-seo').innerText 
-      : '';
+//   // Si hizo clic en la tarjeta pero NO en los botones de comprar/carrito
+//   if (card && !event.target.closest('button')) {
+//     // Extraer la descripción visible (para SEO)
+//     const descriptionText = card.querySelector('.product-description-seo') 
+//       ? card.querySelector('.product-description-seo').innerText 
+//       : '';
 
-    const productData = {
-      title: card.dataset.title || card.querySelector('h2').innerText,
-      price: card.dataset.price || card.querySelector('.tip__txt').innerText,
-      description: descriptionText,
-      mainImage: card.dataset.mainImage || card.querySelector('img').src,
-      images: card.dataset.images ? card.dataset.images.split(',') : []
-    };
+//     const productData = {
+//       title: card.dataset.title || card.querySelector('h2').innerText,
+//       price: card.dataset.price || card.querySelector('.tip__txt').innerText,
+//       description: descriptionText,
+//       mainImage: card.dataset.mainImage || card.querySelector('img').src,
+//       images: card.dataset.images ? card.dataset.images.split(',') : []
+//     };
 
-    openQuickView(productData);
-  }
-});
+//     openQuickView(productData);
+//   }
+// });
 
-// Función para abrir el modal con los datos extraídos
+// // Función para abrir el modal con los datos extraídos
+// // function openQuickView(productData) {
+// //   document.getElementById('modalTitle').innerText = productData.title;
+// //   document.getElementById('modalPrice').innerText = productData.price;
+// //   document.getElementById('modalDescription').innerText = productData.description;
+// //   document.getElementById('modalMainImg').src = productData.mainImage;
+
+// //   // Cargar miniaturas dinámicamente
+// //   const thumbnailsContainer = document.querySelector('.modal-thumbnails');
+// //   if (thumbnailsContainer && productData.images.length > 0) {
+// //     thumbnailsContainer.innerHTML = '';
+// //     productData.images.forEach((imgSrc, index) => {
+// //       const img = document.createElement('img');
+// //       img.src = imgSrc.trim();
+// //       img.alt = `Vista ${index + 1}`;
+// //       if (index === 0) img.classList.add('thumb-active');
+      
+// //       img.onclick = function() {
+// //         changeMainImage(imgSrc.trim());
+// //         document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('thumb-active'));
+// //         img.classList.add('thumb-active');
+// //       };
+      
+// //       thumbnailsContainer.appendChild(img);
+// //     });
+// //   }
+
+// //   document.getElementById('quickViewModal').classList.add('active');
+// // }
+
 // function openQuickView(productData) {
+//   // 1. Asignar título, precio y descripción
 //   document.getElementById('modalTitle').innerText = productData.title;
 //   document.getElementById('modalPrice').innerText = productData.price;
 //   document.getElementById('modalDescription').innerText = productData.description;
+  
+//   // 2. FORZAR que la imagen principal sea la de este producto
 //   document.getElementById('modalMainImg').src = productData.mainImage;
 
-//   // Cargar miniaturas dinámicamente
+//   // 3. Renderizar las miniaturas dinámicamente
 //   const thumbnailsContainer = document.querySelector('.modal-thumbnails');
-//   if (thumbnailsContainer && productData.images.length > 0) {
-//     thumbnailsContainer.innerHTML = '';
-//     productData.images.forEach((imgSrc, index) => {
+//   if (thumbnailsContainer) {
+//     thumbnailsContainer.innerHTML = ''; // Limpiar anteriores
+    
+//     // Unimos la imagen principal + las imágenes de detalle (si las tiene)
+//     let allImages = [productData.mainImage];
+//     if (productData.images && productData.images.length > 0) {
+//       // Evitamos duplicar la principal si ya viene en el array
+//       const extraImages = productData.images.filter(img => img !== productData.mainImage);
+//       allImages = allImages.concat(extraImages);
+//     }
+
+//     allImages.forEach((imgSrc, index) => {
 //       const img = document.createElement('img');
 //       img.src = imgSrc.trim();
 //       img.alt = `Vista ${index + 1}`;
-//       if (index === 0) img.classList.add('thumb-active');
       
+//       // La primera miniatura arranca seleccionada
+//       if (index === 0) {
+//         img.classList.add('thumb-active');
+//       }
+      
+//       // Al hacer clic en cualquier miniatura, cambia la grande
 //       img.onclick = function() {
 //         changeMainImage(imgSrc.trim());
 //         document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('thumb-active'));
@@ -243,69 +289,23 @@ document.addEventListener('click', function(event) {
 //     });
 //   }
 
+//   // 4. Mostrar el modal
 //   document.getElementById('quickViewModal').classList.add('active');
 // }
+// // Cerrar el modal
+// function closeQuickView() {
+//   document.getElementById('quickViewModal').classList.remove('active');
+// }
 
-function openQuickView(productData) {
-  // 1. Asignar título, precio y descripción
-  document.getElementById('modalTitle').innerText = productData.title;
-  document.getElementById('modalPrice').innerText = productData.price;
-  document.getElementById('modalDescription').innerText = productData.description;
-  
-  // 2. FORZAR que la imagen principal sea la de este producto
-  document.getElementById('modalMainImg').src = productData.mainImage;
+// // Cambiar imagen principal desde miniaturas
+// function changeMainImage(src) {
+//   document.getElementById('modalMainImg').src = src;
+// }
 
-  // 3. Renderizar las miniaturas dinámicamente
-  const thumbnailsContainer = document.querySelector('.modal-thumbnails');
-  if (thumbnailsContainer) {
-    thumbnailsContainer.innerHTML = ''; // Limpiar anteriores
-    
-    // Unimos la imagen principal + las imágenes de detalle (si las tiene)
-    let allImages = [productData.mainImage];
-    if (productData.images && productData.images.length > 0) {
-      // Evitamos duplicar la principal si ya viene en el array
-      const extraImages = productData.images.filter(img => img !== productData.mainImage);
-      allImages = allImages.concat(extraImages);
-    }
-
-    allImages.forEach((imgSrc, index) => {
-      const img = document.createElement('img');
-      img.src = imgSrc.trim();
-      img.alt = `Vista ${index + 1}`;
-      
-      // La primera miniatura arranca seleccionada
-      if (index === 0) {
-        img.classList.add('thumb-active');
-      }
-      
-      // Al hacer clic en cualquier miniatura, cambia la grande
-      img.onclick = function() {
-        changeMainImage(imgSrc.trim());
-        document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('thumb-active'));
-        img.classList.add('thumb-active');
-      };
-      
-      thumbnailsContainer.appendChild(img);
-    });
-  }
-
-  // 4. Mostrar el modal
-  document.getElementById('quickViewModal').classList.add('active');
-}
-// Cerrar el modal
-function closeQuickView() {
-  document.getElementById('quickViewModal').classList.remove('active');
-}
-
-// Cambiar imagen principal desde miniaturas
-function changeMainImage(src) {
-  document.getElementById('modalMainImg').src = src;
-}
-
-// Cerrar al hacer clic fuera del modal
-window.onclick = function(event) {
-  const modal = document.getElementById('quickViewModal');
-  if (event.target === modal) {
-    closeQuickView();
-  }
-};
+// // Cerrar al hacer clic fuera del modal
+// window.onclick = function(event) {
+//   const modal = document.getElementById('quickViewModal');
+//   if (event.target === modal) {
+//     closeQuickView();
+//   }
+// };

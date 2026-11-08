@@ -195,46 +195,48 @@ confCompra.forEach(boton => {
 // Variable para almacenar el producto seleccionado en el modal
 let activeProduct = null;
 
-// Modifica tu función openQuickView para guardar el producto activo
-function openQuickView(productData) {
-  activeProduct = productData; // <--- Guardamos los datos aquí
+
+// function openQuickView(productData) {
+//   activeProduct = productData; // <--- Guardamos los datos aquí
   
-  document.getElementById('modalTitle').innerText = productData.title;
-  document.getElementById('modalPrice').innerText = productData.price;
-  document.getElementById('modalDescription').innerText = productData.description;
-  document.getElementById('modalMainImg').src = productData.mainImage;
+//   document.getElementById('modalTitle').innerText = productData.title;
+//   document.getElementById('modalPrice').innerText = productData.price;
+//   document.getElementById('modalDescription').innerText = productData.description;
+//   document.getElementById('modalMainImg').src = productData.mainImage;
 
-  const thumbnailsContainer = document.querySelector('.modal-thumbnails');
-  if (thumbnailsContainer) {
-    thumbnailsContainer.innerHTML = '';
+//   const thumbnailsContainer = document.querySelector('.modal-thumbnails');
+//   if (thumbnailsContainer) {
+//     thumbnailsContainer.innerHTML = '';
     
-    let allImages = [productData.mainImage];
-    if (productData.images && productData.images.length > 0) {
-      const extraImages = productData.images.filter(img => img !== productData.mainImage);
-      allImages = allImages.concat(extraImages);
-    }
+//     let allImages = [productData.mainImage];
+//     if (productData.images && productData.images.length > 0) {
+//       const extraImages = productData.images.filter(img => img !== productData.mainImage);
+//       allImages = allImages.concat(extraImages);
+//     }
 
-    allImages.forEach((imgSrc, index) => {
-      const img = document.createElement('img');
-      img.src = imgSrc.trim();
-      img.alt = `Vista ${index + 1}`;
+//     allImages.forEach((imgSrc, index) => {
+//       const img = document.createElement('img');
+//       img.src = imgSrc.trim();
+//       img.alt = `Vista ${index + 1}`;
       
-      if (index === 0) {
-        img.classList.add('thumb-active');
-      }
+//       if (index === 0) {
+//         img.classList.add('thumb-active');
+//       }
       
-      img.onclick = function() {
-        changeMainImage(imgSrc.trim());
-        document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('thumb-active'));
-        img.classList.add('thumb-active');
-      };
+//       img.onclick = function() {
+//         changeMainImage(imgSrc.trim());
+//         document.querySelectorAll('.modal-thumbnails img').forEach(t => t.classList.remove('thumb-active'));
+//         img.classList.add('thumb-active');
+//       };
       
-      thumbnailsContainer.appendChild(img);
-    });
-  }
+//       thumbnailsContainer.appendChild(img);
+//     });
+//   }
 
-  document.getElementById('quickViewModal').classList.add('active');
-}
+//   document.getElementById('quickViewModal').classList.add('active');
+// }
+
+
 
 // Escuchar el clic en el botón "Comprar" dentro del modal
 const modalBuyBtn = document.querySelector(".btn-buy-modal");
@@ -256,21 +258,140 @@ if (modalBuyBtn) {
   });
 }
 
+// 1. Escuchar el clic en las tarjetas para abrir el modal con todos los datos
+// // 1. Escuchar el clic en las tarjetas para abrir el modal con todos los datos
+// 1. Event listener para abrir el modal
+document.querySelectorAll(".tip").forEach(card => {
+  card.addEventListener("click", (e) => {
+    if (e.target.closest(".slider__link") || e.target.closest(".slider__linkk")) return;
 
+    const productData = {
+      title: card.dataset.title || card.querySelector(".tip__title")?.innerText || "",
+      price: card.dataset.price || card.querySelector(".tip__txt")?.innerText || "",
+      description: card.dataset.description || "Máquina de extrusión industrial para reciclaje de plástico y fabricación de filamento de 1,75 mm.",
+      mainImage: card.dataset.mainImage || card.querySelector("img")?.src || "",
+      images: card.dataset.images ? card.dataset.images.split(',').map(img => img.trim()) : [],
+      video: card.dataset.video ? card.dataset.video.trim() : null
+    };
 
+    openQuickView(productData);
+  });
+});
 
+function openQuickView(productData) {
+  activeProduct = productData;
+  document.getElementById('modalTitle').innerText = productData.title;
+  document.getElementById('modalPrice').innerText = productData.price;
+  document.getElementById('modalDescription').innerText = productData.description;
 
+  const thumbnailsContainer = document.querySelector('.modal-thumbnails');
+  thumbnailsContainer.innerHTML = '';
 
+  // Miniatura de video primero
+  if (productData.video) {
+    const videoThumb = document.createElement('div');
+    videoThumb.className = 'thumb-video-container thumb-active';
+    videoThumb.innerHTML = `
+      <img src="${productData.mainImage}" alt="Video">
+      <div class="play-overlay"><i class="fas fa-play"></i></div>
+    `;
+    videoThumb.onclick = function () {
+      showMainVideo(productData.video);
+      clearActiveThumbs();
+      videoThumb.classList.add('thumb-active');
+    };
+    thumbnailsContainer.appendChild(videoThumb);
+  }
 
+  // Miniaturas de imágenes
+  let allImages = [productData.mainImage];
+  if (productData.images.length > 0) {
+    allImages = allImages.concat(
+      productData.images.filter(img => img !== productData.mainImage)
+    );
+  }
 
+  allImages.forEach((imgSrc, index) => {
+    const img = document.createElement('img');
+    img.src = imgSrc.trim();
+    img.alt = `Vista ${index + 1}`;
+    img.onerror = () => img.remove();
 
+    if (!productData.video && index === 0) img.classList.add('thumb-active');
 
+    img.onclick = function () {
+      showMainImage(imgSrc.trim());
+      clearActiveThumbs();
+      img.classList.add('thumb-active');
+    };
+    thumbnailsContainer.appendChild(img);
+  });
 
+  // Abrir el modal y al final mostrar video o imagen
+  document.getElementById('quickViewModal').classList.add('active');
 
+  if (productData.video) {
+    showMainVideo(productData.video);
+  } else {
+    showMainImage(productData.mainImage);
+  }
+}
 
+function showMainImage(src) {
+  const imgEl = document.getElementById('modalMainImg');
+  const videoEl = document.getElementById('modalMainVideo');
 
+  videoEl.pause();
+  videoEl.style.display = 'none';
 
+  imgEl.src = src;
+  imgEl.style.display = 'block';
+}
 
+// function showMainVideo(videoSrc) {
+//   const imgEl = document.getElementById('modalMainImg');
+//   const videoEl = document.getElementById('modalMainVideo');
 
+//   imgEl.style.display = 'none';
+//   videoEl.style.display = 'block';
 
+//   if (!videoEl.src.endsWith(videoSrc.replace('./', ''))) {
+//     videoEl.src = videoSrc;
+//     videoEl.load();
+//   }
+//   videoEl.muted = true;
+//   videoEl.play().catch(() => {});
+// }
 
+function showMainVideo(videoSrc) {
+  //  console.trace('showMainImage llamada con:', src);
+  const imgEl = document.getElementById('modalMainImg');
+  const videoEl = document.getElementById('modalMainVideo');
+
+  imgEl.style.display = 'none';
+  videoEl.style.display = 'block';
+  videoEl.muted = true;
+
+  // Asignar src ya dispara la carga, no hace falta load()
+  if (!videoEl.src.endsWith(videoSrc.replace('./', ''))) {
+    videoEl.src = videoSrc;
+  }
+
+  videoEl.currentTime = 0;
+  const p = videoEl.play();
+  if (p !== undefined) {
+    p.catch(err => console.log('No pudo reproducir:', err.name, err.message));
+  }
+}
+
+function clearActiveThumbs() {
+  document.querySelectorAll('.modal-thumbnails img, .modal-thumbnails .thumb-video-container')
+    .forEach(t => t.classList.remove('thumb-active'));
+}
+
+function closeQuickView() {
+  const videoEl = document.getElementById('modalMainVideo');
+  videoEl.pause();
+  videoEl.currentTime = 0;
+  document.getElementById('quickViewModal').classList.remove('active');
+}
